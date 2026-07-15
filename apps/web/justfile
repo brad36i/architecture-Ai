@@ -1,0 +1,24 @@
+set shell := ["bash", "-cu"]
+
+compose := "docker compose -f docker-compose.yml -f docker-compose.override.yml"
+
+default:
+    @just --list
+
+up:
+    {{compose}} up -d
+
+down:
+    {{compose}} down
+
+rebuild:
+    {{compose}} up -d --build
+
+logs:
+    {{compose}} logs -f
+
+config:
+    {{compose}} config
+
+ps:
+    {{compose}} ps

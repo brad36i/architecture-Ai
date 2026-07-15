@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "git-worktree-manager": {
+      "source": "smithery.ai",
+      "sourceType": "well-known",
+      "computedHash": "360851b8ab8bce4e81c02d0a3607b2b23c24c8b7d77eabf3aad3091de59ca9c4"
+    }
+  }
+}

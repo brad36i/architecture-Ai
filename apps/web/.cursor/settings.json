@@ -1,0 +1,16 @@
+{
+  "plugins": {
+    "context7-plugin": {
+      "enabled": true
+    },
+    "supabase": {
+      "enabled": true
+    },
+    "slack": {
+      "enabled": true
+    },
+    "figma": {
+      "enabled": true
+    }
+  }
+}

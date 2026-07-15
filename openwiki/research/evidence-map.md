@@ -1,0 +1,25 @@
+# Evidence Map
+
+Use this page to map repository evidence to paper sections.
+
+| Paper section                  | Evidence                                                                                                                                                                                        | Files / commands                                                                                                                                                                    |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| System architecture            | npm workspace monorepo with web/api/db/agent packages                                                                                                                                           | `package.json`, `apps/*`, `packages/*`                                                                                                                                              |
+| Build pipeline                 | Turborepo task graph, package build ordering, and local cache                                                                                                                                   | `turbo.json`, `package.json`, `package-lock.json`                                                                                                                                   |
+| Frontend adaptation            | Existing UI preserved while the project sidebar provides direct navigation across 13 school design-competition stages with grayscale emoji markers and an upper-right stage legal-review action | `apps/web/src/widgets/sidebar/sidebar.tsx`, `apps/web/src/shared/config/architecture-stages.ts`, `apps/web/src/widgets/header/ui/header.tsx`, `apps/web/src/features/legal-review/` |
+| Project creation and files     | Project name + upload flow, UTF-8 filename normalization, original display-name metadata, and readable legacy fallback                                                                          | `apps/web/src/features/projects/ui/project-form-modal.tsx`, `apps/web/src/features/project-files/`, `apps/api/src/file-names.ts`, `apps/api/src/index.ts`                           |
+| API design                     | Express endpoints for projects/files/proposals/agent and stage-specific legal reviews                                                                                                           | `apps/api/src/index.ts`                                                                                                                                                             |
+| Data persistence               | SQLite project/proposal data plus stage-specific legal-review history                                                                                                                           | `packages/db/src/index.ts`                                                                                                                                                          |
+| Agent integration              | LangChain JS ChatOpenAI with deterministic fallback and a cautious legal-review prompt                                                                                                          | `packages/agent/src/index.ts`                                                                                                                                                       |
+| Verification                   | Typecheck, build, audit, smoke tests                                                                                                                                                            | `openwiki/research/implementation-log.md`, snapshots                                                                                                                                |
+| Research documentation process | OpenWiki docs and update workflow                                                                                                                                                               | `openwiki/`, `.github/workflows/openwiki-update.yml`, `AGENTS.md`                                                                                                                   |
+
+## Evidence gaps
+
+- No automated parser yet for extracting structured fields from uploaded architecture notices.
+- Legal reviews do not yet retrieve versioned authoritative statutes or bind a review to an immutable snapshot of stage output.
+- No production authentication model; local fallback user ID is used for development.
+- No formal user study yet.
+- No quantitative comparison against manual proposal preparation yet.
+
+Update this page whenever a feature becomes real evidence rather than an intended future feature.
