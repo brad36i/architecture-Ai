@@ -13,6 +13,7 @@ apps/api/data/
 .omx/
 apps/web/.agents/
 apps/web/.claude/settings.local.json
+*:Zone.Identifier
 
 *.tsbuildinfo
 
